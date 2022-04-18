@@ -32,7 +32,7 @@ import {
 	EIP4824Member,
 	EIP4824Activity
 
-} from '../eip-4824/schema'
+} from './schema'
 
 import {
 	constants,
@@ -51,17 +51,13 @@ import {
 	fetchEIP4824Weight,
 	fetchEIP4824Member
 
-} from '../eip-4824/fetch'
+} from './fetch'
 
-import { PRDaoEvent, PRDaoTally } from '../prdao/schema'
+import { PRDaoEvent } from '../prdao/schema'
 
 const network = "ethereum";
 const chainId = "5"
 
-// function compute_tally(proposalId: string): PRDaoTally {
-
-// 	let activities = fetchEIP4824Activities(proposalId);
-// }
 
 export function handleProposalCreated(event: ProposalCreatedEvent): void {
 
@@ -175,6 +171,4 @@ export function handleVoteCast(event: VoteCastEvent): void {
 	activity.weight = weight.id;
 	activity.support = support.id;
 	activity.save();
-
-
 }
